@@ -1,4 +1,6 @@
 <?php
+$token = 'token'; // 202cb962ac59075b964b07152d234b70
+$id = ''; // https://vk.com/durov
 $idw = strstr($id, ':', true);
 if ($idw == 'https' OR 'http')
 {
@@ -25,22 +27,4 @@ $request_params = array(
 $get_params = http_build_query($request_params);
 $result = json_decode(file_get_contents('https://api.vk.com/method/users.get?'. $get_params));
 $id = ($result -> response[0] -> id);
-/*if ($id == '0')
-{
-    $request_params = array( 
-'message' => "Доступ запрещён", 
-'user_id' => $user_id, 
-'access_token' => $token,
-'read_state' => 1,
-'v' => '5.0' 
-); 
-
-$get_params = http_build_query($request_params); 
-
-file_get_contents('https://api.vk.com/method/messages.send?'. $get_params); 
-
-//Возвращаем "ok" серверу Callback API 
-echo('ok'); 
-
-break;
-}*/
+// $id == '1'; // id
